@@ -185,6 +185,7 @@ button:hover {
 }
 
 .page-form {
+  background-color: blue;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -562,4 +563,6 @@ button:hover {
 .pop-up-txtarea:focus {
   outline: none;
 }
+
+/*test*/
 /*# sourceMappingURL=style.css.map */
