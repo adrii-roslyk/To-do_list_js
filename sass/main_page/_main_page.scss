@@ -14,8 +14,7 @@
     text-transform: uppercase;
 }
 
-.page-form {
-    background-color: blue;//test
+.page-form {    
     @include flex($jc: space-between);    
 
     &--add-task {
