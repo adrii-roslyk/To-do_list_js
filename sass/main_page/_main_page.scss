@@ -15,6 +15,7 @@
 }
 
 .page-form {
+    background-color: blue;//test
     @include flex($jc: space-between);    
 
     &--add-task {
