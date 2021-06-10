@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>   
+<!----------------------------------------------------------------->    
+    <div class="wrapper">
+        <form class="auth-form">
+            <h2 class="auth-form__title">Login Page</h2><!--h1-->
+            <div class="auth-form__input">
+                <label class="auth-inp">
+                    <span class="auth-inp__name">Email</span>
+                    <input class="auth-inp__data" name="userEmail" type="email"  
+                        placeholder="Enter you email" autofocus required>
+                </label>
+            </div>
+            <div class="auth-form__input">
+                <label class="auth-inp">
+                    <span class="auth-inp__name">Password</span>
+                    <input class="auth-inp__data" name="userPassword" type="password" 
+                        placeholder="Enter your password, 8min, 12max" minlength="8" maxlength="12" required>
+                </label>
+            </div>
+            <div class="auth-form__button">
+                <button class="rectangle-btn rectangle-btn--blue" name="loginBtn" type="button">Login</button>
+            </div>
+        </form>
+    </div>
+<!----------------------------------------------------------------->  
+    <div class="wrapper">
+        <form class="pop-up-form">
+            <h2 class="pop-up-form__title">Edit text</h2>
+            <div class="pop-up-form__txt">
+                <textarea class="pop-up-txtarea" name="editContent" placeholder="New text of todo item..."  
+                    minlength="2" maxlength="300" autocomplete="off" autofocus></textarea>
+            </div>
+            <div class="pop-up-form__buttons">
+                <button class="rectangle-btn rectangle-btn--blue" name="canselBtn" type="button">Cansel</button>
+                <button class="rectangle-btn rectangle-btn--blue" name="saveBtn" type="button">Save</button>
+            </div> 
+        </form>
+        <br>
+        <form class="pop-up-form">
+            <h2 class="pop-up-form__title">Delete item?</h2>            
+            <div class="pop-up-form__buttons">
+                <button class="rectangle-btn rectangle-btn--blue" name="noBtn" type="button">No</button>
+                <button class="rectangle-btn rectangle-btn--blue" name="yesBtn" type="button">Yes</button>
+            </div> 
+        </form>
+    </div>
+<!----------------------------------------------------------------->    
+    <div class="wrapper">
+        <header class="page-header">
+            <h1 class="title">todo list</h1>
+            <form class="page-form page-form--add-task" action="#">
+                <div class="page-form__input">
+                    <input class="page-inp" name="taskInp" type="text" placeholder="Task" minlength="2" maxlength="300" autofocus>
+                </div>
+                <div class="page-form__button">
+                    <button class="rectangle-btn rectangle-btn--blue" name="addBtn" type="button">Add</button>
+                </div>            
+            </form>
+        </header>
+        <main class="page-main">
+            <div class="control-panel">
+                <div class="control-panel__btn">
+                    <button class="rectangle-btn rectangle-btn--light-blue" name="sortDateBtn" type="button">
+                        <img class="rectangle-btn__img" src="img/arrows.png" alt="sort by date">
+                    </button>
+                </div>
+                <div class="control-panel__btn">
+                    <button class="rectangle-btn rectangle-btn--light-blue" name="sortImpBtn" type="button">
+                        <img class="rectangle-btn__img" src="img/arrows.png" alt="sort by importance">
+                    </button>
+                </div>                         
+                <form class="page-form page-form--search" action="#">
+                    <div class="page-form__input">
+                        <input class="page-inp" name="searchInp" type="search" placeholder="Search" maxlength="300">
+                    </div>
+                    <div class="page-form__button">
+                        <button class="rectangle-btn rectangle-btn--light-blue" name="searchBtn" type="button">
+                            <img class="rectangle-btn__img" src="img/search.png" alt="search">
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <ul class="tasks-block">
+                <li class="task">
+                    <div class="task__date">
+                        <p class="creat-date">12.10.2018</p>
+                        <p class="creat-time">13:24</p>
+                    </div>
+                    <div class="task__impotance">
+                        <p class="impotance">1</p>
+                        <div class="arr-select">
+                            <button class="arr-select__btn arr-select__btn--up" name="selectUpBtn" type="button"></button>
+                            <button class="arr-select__btn arr-select__btn--down" name="selectDownBtn" type="button"></button>
+                        </div>
+                    </div>  
+                    <p class="task__content">
+                        Task for create user page Task for create user page
+                        Task for create user page Task for create user page
+                        Task for create user page Task for create user page
+                        Task for create user page Task for create user page
+                    </p>                    
+                    <div class="task__control">
+                        <button class="round-btn round-btn--edit" name="editBtn" type="button">
+                            <img class="round-btn__img" src="img/edit.png" alt="edit">
+                        </button>
+                        <button class="round-btn round-btn--done" name="doneBtn" type="button">
+                            <img class="round-btn__img" src="img/done.png" alt="done">
+                        </button>
+                        <button class="round-btn round-btn--delete" name="deleteBtn" type="button">
+                            <img class="round-btn__img" src="img/delete.png" alt="delete">
+                        </button>
+                    </div>
+                </li>                
+            </ul>
+        </main>
+    </div>     
+    <script src="js/script.js"></script>   
+</body>
+</html>

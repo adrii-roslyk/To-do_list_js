@@ -1,0 +1,201 @@
+
+.wrapper {
+    padding: 30px 0;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.page-header {
+    padding-bottom: 50px;
+}
+
+.title {  
+    @extend %title;
+    text-transform: uppercase;
+}
+
+.page-form {
+    @include flex($jc: space-between);    
+
+    &--add-task {
+        width: 80%;
+        max-width: 820px;
+        margin: 0 auto;
+
+        & > .page-form__input {
+            width: 84%;
+            max-width: 689px;
+        }
+    }
+
+    &--search {
+        width: 77.279%;
+        max-width: 792px;
+
+        & > .page-form__input {
+            width: 77.718%;
+            max-width: 615px;
+        }
+
+        & > .page-form__button {
+            width: 18.324%;
+            max-width: 145px;
+        }
+    }
+}
+
+.page-inp {
+    border-bottom: 2px solid $inpBorder;   
+    width: 100%;
+    font-size: 16px;
+    padding: 15px 5px 0 5px;   
+}
+
+.control-panel {
+    @include flex($jc: space-between);     
+    padding-bottom: 20px;
+
+    &__btn {
+        &:first-child {
+            @extend %column1;   
+            
+            & > button {
+                margin: 0 auto;
+            }
+        }
+
+        &:nth-child(2) {
+            @extend %column2;
+            
+            & > button {
+                margin-left: 10.564%;
+            }
+        }
+    }
+}
+
+.task {
+    @include flex($jc: space-between, $ai: flex-start);     
+    
+    &:not(:last-child) {
+        padding-bottom: 20px;
+    }
+
+    &__date {
+        @include flex($fd: column, $jc: space-between, $ai: center);     
+        @extend %column1;  
+    }
+
+    &__impotance {        
+        @include flex($jc: space-between);
+        padding-top: 5px;     
+        @extend %column2;   
+    }
+
+    &__content {                  
+        @include flex($jc: flex-start, $ai: center);
+        min-height: 45px;
+        padding: 10px;
+        background-color: $contActive;  
+        width: 60.059%;
+        max-width: 615px;                   
+    }
+
+    &__control {        
+        @include flex($jc: space-between);
+        padding-top: 5px;  
+        width: 14.161%;
+        max-width: 145px;
+    }
+}
+
+.creat-date {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.creat-time {
+    font-size: 18px;
+}
+
+.impotance {
+    @include flex($jc: center, $ai: center);
+    @extend .creat-date;
+    width: 50px;    
+    height: 35px;
+    background-color: $greyBgr;
+    color: $innerColor;
+    user-select: none;
+}
+
+.arr-select {
+    @include flex($fd: column, $jc: space-between);
+    padding: 3px 0;
+    
+    &__btn {
+        width: 11px;
+        height: 11px;
+        border: solid $btnDarkBlue;
+        border-width: 0 3px 3px 0;
+        
+        &:hover {
+            border-color: $darkBlueHvr;
+        }
+
+        &--up {
+            transform: rotate(-135deg);
+
+            &:active {
+                transform: rotate(-135deg) scale(0.9);
+            }
+        }
+    
+        &--down {
+            transform: rotate(45deg);
+
+            &:active {
+                transform: rotate(45deg) scale(0.9);
+            }
+        }
+    }
+}
+
+.round-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    @include flex($jc: center, $ai: center);        
+    @extend %button;
+
+    &--edit {
+        background-color: $btnLiteGreen;
+
+        &:hover {
+            background-color: $liteGreenHvr;
+        }
+
+        img {
+            width: 70%;
+            max-width: 24.5px;
+        }
+    }
+
+    &--done {
+        background-color: $btnLiteBlue;
+        @extend %btnBlueHvr;
+        
+        img {
+            width: 100%;
+        }
+    }
+    
+    &--delete {
+        background-color: $btnLiteBlue;
+        @extend %btnBlueHvr;
+
+        img {
+            width: 75%;
+            max-width: 26.25px;
+        }
+    }
+}

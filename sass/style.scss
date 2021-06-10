@@ -1,0 +1,39 @@
+@import './vars';
+@import './extends';
+@import './normalize';
+@import './mixins';
+
+.rectangle-btn {
+    border-radius: 3px;       
+    font-weight: 700;
+    color: $innerColor;
+    @extend %button;
+
+    &__img {
+        width: 100%;
+    }
+
+    &--blue {
+        padding: 10px 40px;
+        background-color: $btnDarkBlue;
+        text-transform: uppercase;
+        
+        &:hover {
+            background-color: $darkBlueHvr;
+        }
+    }
+
+    &--light-blue {
+        width: 35px;
+        height: 35px;
+        padding: 5px;        
+        background-color: $btnLiteBlue;
+        @extend %btnBlueHvr;        
+    }
+}
+
+@import './login/login';
+@import './main_page/main_page';
+@import './pop_up/pop_up';
+
+

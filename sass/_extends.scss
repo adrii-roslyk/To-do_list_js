@@ -1,0 +1,39 @@
+%pageFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: $txtContColor;
+}
+
+%title {
+    font-size: 20px;  
+    font-weight: 700;
+    text-align: center;       
+    padding-bottom: 30px; 
+}
+
+%button {
+    box-shadow: 1px 1px 5px 0px $shadowColor;
+    user-select: none;
+
+    &:active {        
+        box-shadow: none;
+        transform: translate(1px, 1px);
+    }
+}
+
+%column1 {
+    width: 9.864%;
+    max-width: 101px;
+}
+
+%column2 {
+    width: 6.934%;
+    max-width: 71px;
+}
+
+%btnBlueHvr {
+    &:hover {
+        background-color: $liteBlueHvr;
+    }
+}
+
