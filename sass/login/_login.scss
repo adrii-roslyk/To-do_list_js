@@ -1,5 +1,9 @@
 .auth-form {
-    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
     padding: 50px; 
     background-color: $contInactive;  
 
@@ -8,11 +12,11 @@
     }
 
     &__input:first-of-type {
-        padding-bottom: 20px;
+        padding-bottom: 30px;
     }
 
     &__input:nth-of-type(2) {
-        padding-bottom: 30px;
+        padding-bottom: 40px;
     }
 
     &__button {
@@ -22,6 +26,7 @@
 
 .auth-inp {    
     @include flex($fd: column);
+    position: relative;
 
     &__name {
         text-align: left;
