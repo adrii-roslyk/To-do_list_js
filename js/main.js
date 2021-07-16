@@ -1,22 +1,25 @@
 "use strict";
 
 window.addEventListener('load', function() {
-  /**********modal window "login"**********/
+  /********************LOGIN********************/
   const loginBlock = document.querySelector('.login');   
   const todoPage = document.querySelector('.todo');
   const authForm = document.forms.authForm;
   const emailInput = authForm.elements.userEmail; 
   const passwordInput = authForm.elements.userPassword;
   const inputs = [emailInput, passwordInput];  
-  const loginBtn = authForm.querySelector('button[name="loginBtn"]');
- 
-  init();    
-  listenAuthInputs();
-  listenAuthButton(); 
+  const loginBtn = authForm.querySelector('button[name="loginBtn"]'); 
+  const authFormTitle = document.querySelector('.auth-form__title');
+  const classErrData = 'error-data';
+  const classWrongData = 'wrong-data';  
+  
+  init();       
    
   function init() {
     hideEelement(todoPage);
-    showElement(loginBlock);     
+    showElement(loginBlock);
+    listenAuthInputs();
+    listenAuthButton();     
   }  
 
   function showElement(element) {
@@ -30,58 +33,70 @@ window.addEventListener('load', function() {
   function listenAuthInputs() {
     
     for (let input of inputs) {        
-      input.addEventListener('focus', function inputsFocusHandler() {
-        removeErrMessage(input);                            
+      input.addEventListener('focus', function inputsFocusHandler() {        
+        
+        if (authFormTitle.nextElementSibling.className === 'wrong-data') {
+          removeErrMessage(authFormTitle);
+        }
+
+        removeErrMessage(input); 
+        input.classList.remove('valid','invalid')           
       })
 
-      input.addEventListener('blur', function inputsBlurHandler() {         
+      input.addEventListener('blur', function inputsBlurHandler() {             
         let errorMessage = validateInput(input);          
         
         if (errorMessage) {
-          addErrMessage(input, errorMessage);                   
+          addErrMessage(input, classErrData, errorMessage); 
+          input.classList.add('invalid');                       
         } else {
-          removeErrMessage(input);
+          removeErrMessage(input);  
+          input.classList.remove('invalid');
+          input.classList.add('valid');         
         }
       });       
     } 
   }
 
-  function listenAuthButton() {    
-    loginBtn.addEventListener('click', function buttonClickHandler() {          
-      let errors = [];
-
+  function listenAuthButton() {      
+    loginBtn.addEventListener('click', function buttonClickHandler() {                
+      let errors = [];      
+      
       for (let input of inputs) { 
-        removeErrMessage(input); 
+        removeErrMessage(input);        
         
         let errorMessage = validateInput(input);  
         errors.push(errorMessage);      
 
         if (errorMessage) {
-          addErrMessage(input, errorMessage);                        
+          addErrMessage(input, classErrData, errorMessage); 
+          input.classList.add('invalid');                                 
         }         
       }   
       
-      const checkError = (error) => error === null;      
-
-      if (errors.every(checkError)) {
-        authenticate();
-      }           
+      const checkError = (error) => error === null; 
+      let formIsValid = errors.every(checkError);      
+      
+      if (formIsValid) {        
+        let authentication = authenticate(); 
+        authorize(authentication);        
+      }              
     });    
   }
 
-  function removeErrMessage(input) {
-    let errorElement = input.nextElementSibling;
-
-      if (errorElement !== null) {
-        errorElement.remove();
-      }        
+  function addErrMessage(targetElement, className, message) {
+    let errorElement = document.createElement('p');
+    errorElement.className = className;
+    errorElement.textContent = message;
+    targetElement.insertAdjacentElement('afterend', errorElement);
   }
 
-  function addErrMessage(input, message) {
-    let errorElement = document.createElement('p');
-    errorElement.className = 'error';
-    errorElement.textContent = message;
-    input.insertAdjacentElement('afterend', errorElement);
+  function removeErrMessage(targetElement) {
+    let errorElement = targetElement.nextElementSibling;
+    
+    if (errorElement !== null) {
+      errorElement.remove();
+    } 
   } 
 
   function validateInput(input) {     
@@ -140,6 +155,28 @@ window.addEventListener('load', function() {
   }   
   
   function authenticate() {
-    console.log('work');
+    const permittedEmail = 'testuser@todo.com';
+    const permittedPassword = '12345678';
+    
+    let matched = (emailInput.value === permittedEmail && 
+      passwordInput.value === permittedPassword) ? true : false;
+    
+    return matched;  
   }
+
+  function authorize(permission) {
+    const errorMessage = 'Wrong password or email';
+
+    if (permission) {
+      hideEelement(loginBlock);
+      showElement(todoPage); 
+    } else {
+      addErrMessage(authFormTitle, classWrongData, errorMessage);  
+      for (let input of inputs) {
+        input.classList.remove('valid');
+        input.classList.add('invalid'); 
+      }    
+    }
+  }   
+  /********************END_LOGIN********************/
 });

@@ -11,6 +11,11 @@ body, .auth-inp__data, .pop-up-txtarea {
   padding-bottom: 30px;
 }
 
+.error-data, .wrong-data {
+  position: absolute;
+  color: #ff0000;
+}
+
 .rectangle-btn, .round-btn {
   -webkit-box-shadow: 1px 1px 5px 0px #848484;
           box-shadow: 1px 1px 5px 0px #848484;
@@ -86,14 +91,12 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.invalid {
-  border-color: #ff0000;
+.error-data {
+  top: 53px;
 }
 
-.error {
-  position: absolute;
-  top: 53px;
-  color: #ff0000;
+.wrong-data {
+  top: 80px;
 }
 
 .rectangle-btn {
@@ -195,6 +198,14 @@ button:hover {
   -webkit-border-radius: 4px;
           border-radius: 4px;
   padding: 5px;
+}
+
+.valid {
+  border-color: #00ff00;
+}
+
+.invalid {
+  border-color: #ff0000;
 }
 
 .wrapper {

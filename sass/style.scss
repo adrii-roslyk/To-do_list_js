@@ -13,14 +13,14 @@
     background-color: rgba($color: black, $alpha: 0.3);
 }
 
-.invalid {
-    border-color: $errColor;
+.error-data {
+    @extend %error;    
+    top: 53px;       
 }
 
-.error {
-    position: absolute;
-    top: 53px;
-    color: $errColor;   
+.wrong-data {
+    @extend %error;
+    top: 80px;      
 }
 
 .rectangle-btn {

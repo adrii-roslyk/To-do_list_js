@@ -11,6 +11,11 @@
     padding-bottom: 30px; 
 }
 
+%error {
+    position: absolute;
+    color: $invalidColor;
+}
+
 %button {
     box-shadow: 1px 1px 5px 0px $shadowColor;
     user-select: none;
